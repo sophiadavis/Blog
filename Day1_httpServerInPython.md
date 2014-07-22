@@ -16,19 +16,19 @@ I started out in a Python prompt (using bpython, which I learned about this morn
 >>> s.recv(1024)
 'HTTP/1.0 200 OK\r\nDate: ...'
 ```
-That opens a socket for a web **client** and connects it to Google on port 80. The client sends a GET http request, and when I call `.recv(num_bytes)` on the socket object, I can see that many bytes of the response that is served back to the client. Each time I execute `s.recv`, I get the next 1024 bytes of the text of the webpage. Cool.
+That opens a socket for a web **client** and connects it to Google on port 80. The client sends a GET http request, and when I call `.recv(num_bytes)` on the socket object, I can see the next `num_bytes` bytes of the response that is served back to the client. Each time I execute `s.recv(1024)`, I get the next 1024 bytes of the text of the webpage. Cool.
 
 -----------------------
 
 But I wanted to write a **server**. [Apparently](http://ilab.cs.byu.edu/python/socketmodule.html), here are the things a server needs to do:
 
 1. Make a socket
-2. Bind the socket to an address and a port (I chose 'localhost' on port 8000)
+2. Bind the socket to an address (host and port -- I chose 'localhost' on port 8000)
 3. Listen for connections
 4. Accept clients
 5. Send/Receive data (in my case, http stuff)
 
-In [round 1](https://github.com/sophiadavis/http-server/commit/154a1646d314072d724e2eb46130118a55e30800), I implemented steps 1-3, then 4 and 5 inside an infinite while loop -- my server accepted clients, received data from them, and served the same data right back at them.
+In [round 1](https://github.com/sophiadavis/http-server/commit/154a1646d314072d724e2eb46130118a55e30800), I implemented steps 1-3, then 4 and 5 inside an infinite while loop -- my server continually accepted clients, received data from them, and served the same data right back at them.
 
 At this point, I could run my script, go to localhost:8000 in the browser, and see this delivered:
 
