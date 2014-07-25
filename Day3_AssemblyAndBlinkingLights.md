@@ -1,6 +1,8 @@
 # Day 3 at Hacker School
 ## I read a lot about Assembly, and played with an Arduino. 
 
+-----
+
 I started off the day reading and taking notes on [Hardware for AVR-Assembler-Programming](http://www.avr-asm-tutorial.net/avr_en/beginner/), learning more about concepts like:  
 
 |Thing|Explanation|  

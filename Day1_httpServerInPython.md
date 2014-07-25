@@ -1,6 +1,7 @@
 # Day 1 at Hacker School
 ## I wrote an http server in Python.  
 
+-----
 
 First off, I opened the Python [Socket Programming HOWTO](https://docs.python.org/2/howto/sockets.html), and learned a little bit about sockets.
 

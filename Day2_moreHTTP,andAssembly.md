@@ -1,6 +1,8 @@
 # Day 2 at Hacker School
 ## I wrote my first "program" in Assembly.
 
+-----
+
 I started the day off by looking at what Kyle and Dana have been working on. They have a string of LED lights connected to a Raspberry Pi, which they're using to build a sound spectrum analyser (?). Kyle talked to me about some of the issues they've been having -- like each of the two different strands of lights uses a different type of chip, and each chip has a different encoding (?) and voltage. They're using a Python library to control the lights. Cool stuff that I wish I understood better.
 
 --------------
