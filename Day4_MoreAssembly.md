@@ -148,7 +148,7 @@ gcc basic.s -o basic
 ```
 running it (```./basic```), and then checking the return value (```echo $?```). It was 42!
 
-I played around with [conditionals](https://github.com/sophiadavis/Learning-x86-Assembly/blob/master/conditional.s) and [loops](https://github.com/sophiadavis/Learning-x86-Assembly/blob/master/loops.s) (using comparisons and jump statements to execute different sections of code), learned a bit of [how to use constants](https://github.com/sophiadavis/Learning-x86-Assembly/blob/master/helloworld.s), called C's [printf](https://github.com/sophiadavis/Learning-x86-Assembly/blob/master/print.s) (Eric did most of this one), and used a [function call with a local variable](https://github.com/sophiadavis/Learning-x86-Assembly/blob/master/localVars.s) (although not necessary for the task at hand).
+I played around with [conditionals](https://github.com/sophiadavis/Learning-x86-Assembly/blob/master/conditional.s) and [loops](https://github.com/sophiadavis/Learning-x86-Assembly/blob/master/loops.s) (using comparisons and jump statements to execute different sections of code), learned a bit of [how to use constants](https://github.com/sophiadavis/Learning-x86-Assembly/blob/master/helloworld.s), called C's [printf](https://github.com/sophiadavis/Learning-x86-Assembly/blob/master/print.s) (Eric did most of this one), and used a [function call with a local variable](https://github.com/sophiadavis/Learning-x86-Assembly/blob/master/localVars.s) (although not necessary for the task at hand). All any of my programs (except print and hello world) do is set the return value of the 'main' function, so you have to check that they work by running ```echo $?```.
 
 -----
 
