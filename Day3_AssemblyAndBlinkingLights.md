@@ -6,7 +6,7 @@
 I started off the day reading and taking notes on [Hardware for AVR-Assembler-Programming](http://www.avr-asm-tutorial.net/avr_en/beginner/), learning more about concepts like:  
 
 |Thing|Explanation|  
-| :-----: | : -----|  
+| ----- | :----- |  
 |Registers|8-bit blocks for storing data; directly accessible to the CPU|    
 |Ports|'gates' between the CPU and internal/external hardward and software; can hold up to 8 bits; each has a fixed address|  
 |MCUCR|MCU (a port) General Control Register -- controls the general properties of a chip|  
