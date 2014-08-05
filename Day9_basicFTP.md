@@ -1,5 +1,5 @@
 # Day 9 at Hacker School
-## The FTP server continues.
+## The FTP server continues, and I learn to be wary of carriage returns.
 
 -----
 
