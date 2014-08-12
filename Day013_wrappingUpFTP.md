@@ -17,31 +17,31 @@ Working directories need to be given in double quotes, the last line in a respon
 ##### 3. Wireshark is awesome
 Wireshark is a free program that lets you visualize network traffic. I don't really understand it, but I know you can filter by the type of traffic you care about. I used it to understand how *real* FTP servers and clients cooperate. Let's watch a sample transaction between my computer's FTP client and Mozilla's FTP server (type `ftp ftp.mozilla.org` on the command line to connect). Note: I logged on as 'anonymous' -- which is the generic public login for most FTP servers. Most then request your email address as a password --although my server doesn't.
 
-![Wireshark](./FTPimages/Wireshark.png =x500 "Wireshark screen")  
+![Wireshark](FTPimages/Wireshark.png =x500 "Wireshark screen")  
 This is the Wireshark interface. We're filtering for FTP and FTP-Data packets. If you select a packet, you can see source and destination port, protocol, time, and some of the actual contents of the packet.  
   
 --------
 
-![1 client](/FTPimages/1clientRequest.png =x250)  
+![1 client](FTPimages/1clientRequest.png =x250)  
 Here comes a request from my FTP client! Source: port 51094, Destination: port 21 (FTP!!). It's an EPSV command, which I think is just the IPv6 version of the 'passive' command.  
   
 --------
 
-![2 client](/FTPimages/2clientRequest.png =x250)  
+![2 client](FTPimages/2clientRequest.png =x250)  
 Server agrees, and client requests a directory listing (NLST). Same source/destination ports.  
   
 --------  
 
-![3 data](/FTPimages/3theData.png =x250)    
+![3 data](FTPimages/3theData.png =x250)    
 It's an FTP data packet from the server! Notice that the destination and source ports for this data transaction are different (from 51380 to 51095). 
   
 --------
 
-![4 server](/FTPimages/4response.png =x250)    
+![4 server](FTPimages/4response.png =x250)    
 Interestingly, the data was sent before the server's corresponding responses! Now we see the '105 Here comes the directory listing' (same source and destination ports as before)... 
   
 --------
-![5 server](/FTPimages/5response.png =x250)   
+![5 server](FTPimages/5response.png =x250)   
 Followed immediately by the '226 Directory send OK'. I would have expected these to proceed and follow the actual data transfer, but whatever.
   
 -------- 
