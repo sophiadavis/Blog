@@ -11,7 +11,7 @@ If you too want to have some BitTorrent fun, I suggest you start with [Kristen W
 -----
 
 
-Frustratingly, I don't feel like this project significantly increased my understanding of networking or other specific programming concepts. However, it definitely gave me valuable practice structuring a not-insignificant program, and I debunked some of my very erroneous assumptions.  
+Frustratingly, I don't feel like this project significantly increased my understanding of networking or other specific programming concepts. However, it definitely gave me valuable practice structuring a not-insignificant program, and I debunked some very erroneous assumptions.  
 
 I wasted several hours (sometimes days, embarrassingly) on each of the discoveries below:  
 
