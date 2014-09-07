@@ -5,7 +5,7 @@
 
 I've been working on this thing for three weeks -- not counting a much-needed hiatus last week, and I'm proud to say I finally have a [program](https://github.com/sophiadavis/bittorrent-client) that can successfully torrent single and multi-file downloads. So far, I've downloaded *Walden*, a collection of Voltaire's works, *Treasure Island*, and a picture of a flag from Hacker School facilitator Tom Ballinger's very own BitTorrent tracker. I feel very cultured. The sketchiest part of this project is definitely downloading the metainfo files (which describe how to perform the download). They tend to be on sites with pretty dubious ads...
 
-If you too want to have some BitTorrent fun, I suggest you start with [Kristen Widman's two-part blog post](http://www.kristenwidman.com/blog/how-to-write-a-bittorrent-client-part-1/). I basically followed her instructions step-by-step (except I used the UDP protocol to communicate with trackers instead of HTTP, because I wanted to see how UDP worked!). SO helpful.
+If you too want to have some BitTorrent fun, I suggest you start with [Kristen Widman's two-part blog post](http://www.kristenwidman.com/blog/how-to-write-a-bittorrent-client-part-1/). I basically followed her instructions step-by-step (except I used UDP protocol to communicate with trackers instead of HTTP, because I wanted to see how UDP worked!). SO helpful.
 
 
 -----
