@@ -29,19 +29,21 @@ I wasted several hours (sometimes days, embarrassingly) on each of the discoveri
   
     ![1](./BitTorrentImages/lying_debuggers.png)  
     
-    This is a screenshot of the lovely interface of the [PUDB](https://pypi.python.org/pypi/pudb), the Python visual debugger which I used for the first time while working on this project. The upper left block of the screen shows the part of the file that is currently being executed, the upper right pane shows the value/type of all currently defined variables, and the lower left section is an interactive Python interpreter (so you can play around with values in your program at any given point in its execution). It's a very helpful tool that saved me a lot of time and really did help me debug more efficietly (conditional breakpoints are awesome!). Except this one time... I've outlined the disturbing sections in blood-orange. In the top right, I've defined a variable `blocks_remaining = int(math.ceil(bytes_remaining / 2**14))`, in the upper right, we can see that its current value is 1, but when I run that **exact** expression -- `int(math.ceil(bytes_remaining / 2**14))` -- in the Python interpreter (bottom left), it returns 2. This may be because the PUDB interpreter is using division as defined by the [Future library](https://docs.python.org/2/library/__future__.html), but the program itself is being executed using division from the standard library. Confusing -- thanks again to Tom Ballinger for the possible explanation.      
+    This is a screenshot of the lovely interface of [PUDB](https://pypi.python.org/pypi/pudb), the Python visual debugger which I used for the first time while working on this project. The upper left block of the screen shows the part of the file that is being executed, the upper right pane shows the value/type of all currently defined variables, and the lower left section is an interactive Python interpreter (so you can play around with values in your program at any given point in its execution). It's a very helpful tool that saved me a lot of time and really did help me debug more efficietly (conditional breakpoints are awesome!).  
+    Except this one time...  
+    (disturbing sections are outlined in blood-orange). In my program code (top left), I've defined a variable `blocks_remaining = int(math.ceil(bytes_remaining / 2**14))`. In the upper right, we can see that its current value is 1. But when I run that **exact** expression -- `int(math.ceil(bytes_remaining / 2**14))` -- in the Python interpreter (bottom left), it returns 2. This may be because the PUDB interpreter is using division as defined by the [Future library](https://docs.python.org/2/library/__future__.html), but the program itself is being executed using division from the standard library. Confusing -- thanks again to Tom Ballinger for the possible explanation.      
   
     
         
-4. If you're trying to write things to file, it's good to delete the files in between attempts.   
+4. If you're trying to write data to file, it's good to delete the work-in-progress files in between attempts.   
 
-    Nuff said. I can't believe how much time a poor choice of 'append' mode cost me.      
+    'Nuff said. I can't believe how much time a poor choice of 'append' mode cost me.      
   
     
       
 5. Sometimes, your program doesn't perform correctly, and it's not due to bugs in your code.  
 
-    Usually, it is your fault, but not always -- especially when you're trying to cooperate with external programs. I spent several hours refactoring the function that calculated which piece of the download to request next because I thought it was broken. It turned out that no active peer BitTorrent clients were online at the time. Of course I couldn't successfully download *any* pieces from non-existant peers, no matter what order used to request pieces! I guess Walden isn't a very popular torrent.      
+    Usually, it is your fault, but not always -- especially when you're trying to cooperate with external programs. I spent several hours refactoring the function calculating which piece of the download to request next because I thought it was broken. It turned out that no active peer BitTorrent clients were online at the time. Of course I couldn't successfully download *any* pieces from non-existant peers, no matter the order used to request pieces! I guess Walden isn't a very popular torrent.      
   
     
      
