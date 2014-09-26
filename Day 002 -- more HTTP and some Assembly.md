@@ -111,7 +111,7 @@ L_.str1:                                ## @.str1
 
 Even much simpler programs were rather complicated...
 
-I also read about CPUs, the flash, registers... stuff like that. Registers are chips that store data. Unlike main memory (which also stores data), registers are located within the Central Processing Unit (CPU). The CPU manipulates the information stored in its various registers (and main memory), in accordance with instructions (written in hex) from the flash storage. Assembly is a human-readable language that is translated into the hex instructions executed by the CPU. (Except this is all a lot more complicated. [This guy](http://www.avr-asm-tutorial.net/avr_en/beginner/) knows better.)
+I also read about CPUs, the flash, registers... stuff like that. Registers are chips that store data. Unlike main memory (which also stores data), registers are located within the Central Processing Unit (CPU). The CPU manipulates the information stored in its various registers (and main memory), in accordance with instructions (written in hex) from the flash storage. Assembly is a human-readable language that is translated into the hex instructions executed by the CPU. (Except it's a lot more complicated. [This guy](http://www.avr-asm-tutorial.net/avr_en/beginner/) knows better.)
 
 
 Dana showed me a [cool processor simulator](http://ivanzuzak.info/FRISCjs/webapp/), so I ended up played around with that and wrote my first 'program':
