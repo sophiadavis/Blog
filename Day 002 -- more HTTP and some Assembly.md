@@ -7,13 +7,13 @@ I started the day off by looking at what Kyle and Dana have been working on. The
 
 --------------
 
-I spent **WAY** longer than I wanted getting my simple http server to a point where I was happy with it. My goal was to:
+I spent longer than I wanted getting my simple http server to a point where I was happy with it. My goal was to:
 
 1. Receive the client's http request
 2. Figure out the requested path (assuming a GET request)
 3. Serve the files corresponding to the path
 
-I did step 1 yesterday and step 2 was easy, but there were major hangups with step 3... I had added some stupid little html and css files and a jpeg image to the directory with the script that runs my server. The idea was to serve either a text document or the image, depending on the requested path. So I spent a long time trying to figure out how to add something to the http response that would tell the client "and now go look at this file". After talking to another Hacker Schooler who spent two weeks building a much more involved, complicated, functional server, I realized that I was trying to use the "Rails way." You can't just tell the client to look at one of YOUR local files -- you have to actually give them the content. Once I tacked the actual *bytes* that made up each file into the http response (and set the correct Content-Type header), it finally worked. It was also cool to see that when I linked to the css file from an html file, the client started sending a separate request for the css path, too.
+I did step 1 yesterday and step 2 was easy, but there were major hangups with step 3... I had added some simple html and css files and a jpeg image to the directory with the script that runs my server. The idea was to serve either a text document or the image, depending on the requested path. So I spent a long time trying to figure out how to add something to the http response that would tell the client "and now go look at this file". After talking to another Hacker Schooler who spent two weeks building a much more involved, complicated, functional server, I realized that I was trying to use the "Rails way." You can't just tell the client to look at one of YOUR local files -- you have to actually give them the content. Once I tacked the actual *bytes* that made up each file into the http response (and set the correct Content-Type header), it finally worked. It was also cool to see that when I linked to the css file from an html file, the client started sending a separate request for the css path, too.
 
 [Here's](https://github.com/sophiadavis/http-server) the complete code, with lots of (hopefully) helpful comments. I should mention that the code is based heavily on [this tutorial](http://www.binarytides.com/python-socket-programming-tutorial/).
 
@@ -124,7 +124,7 @@ MOVE 0, R3
 ```
 I think it adds 5 to the contents of register R1, and puts the result at R3. Then it copies the contents of R3 to R2, and places a 0 at register R3.
 
-I don’t know what the `END does -- because the simulator's “PC” number keeps increasing (?). 
+I don’t know what the `END does -- because the simulator's “PC” (program counter -- which keeps track of the next instruction the CPU should execute) keeps increasing. Are more instructions being executed somehow? 
 
 ------
 
