@@ -111,7 +111,7 @@ L_.str1:                                ## @.str1
 
 Even much simpler programs were rather complicated...
 
-I also read about CPUs, the flash, registers... stuff like that. Registers are memory -- they each hold 8 bits of information. The Central Processing Unit manipulates the information stored in various registers, in accordance with instructions (written in hex) from the flash storage. Assembly is a human-readable language that is then translated into the hex instructions. (Except that was probably wrong, because it's a lot more complicated. [This guy](http://www.avr-asm-tutorial.net/avr_en/beginner/) knows better.)
+I also read about CPUs, the flash, registers... stuff like that. Registers are chips that store data. Unlike main memory, registers are located within the CPU chip itself -- which makes accessing data stored in a register much faster than accessing data stored in main memory. On a 64-bit machine, the biggest registers can hold 64 bits of information. The Central Processing Unit manipulates the information stored in various registers, in accordance with instructions (written in hex) from the flash storage. Assembly is a human-readable language that is then translated into the hex instructions. (Except that was probably wrong, because it's a lot more complicated. [This guy](http://www.avr-asm-tutorial.net/avr_en/beginner/) knows better.)
 
 
 Dana showed me a [cool processor simulator](http://ivanzuzak.info/FRISCjs/webapp/), so I ended up played around with that and wrote my first 'program':
