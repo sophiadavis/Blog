@@ -123,7 +123,7 @@ Leh_frame_end1:
 
 Crazy! 
 
-Eric helped me reduce the first version to an even more simple Assembly program, which I could use as a template for other programs:
+Eric helped me reduce the first version to an even simpler Assembly program, which I could use as a template for other programs:
 
 ```
 .data # constants and variables go here
@@ -152,9 +152,9 @@ I played around with [conditionals](https://github.com/sophiadavis/Learning-x86-
 
 -----
 
-Some things to note are that the 'prolog' and 'epilog' are part of the Assembly's calling convention -- all functions should start with the prolog and finish with the epilog. Calling convention also specifies which registers contain data that must be saved elsewhere by caller and callee (so no data is overwritten), that parameters should be pushed to the stack last to first (so the callee can reference them easily with respect to the base pointer), etc. It's also important to note that addresses in the stack grow down towards lower numbers, while memory is still written upwards. So in order to allocate space for a local variable, you need to subtract from the address stored in RSP. That's pretty confusing, and my notebook got filled up with lots of drawings of stacks with arrows pointing to them. 
+Some things to note are that the 'prolog' and 'epilog' are part of Assembly calling convention -- all functions should start with the prolog and finish with the epilog. Calling convention also specifies which registers contain data that must be saved elsewhere by caller and callee (so no data is overwritten), that parameters should be pushed to the stack last to first (so the callee can reference them easily with respect to the base pointer), etc. It's also important to note that addresses in the stack grow down towards lower numbers, while memory is still written upwards. So in order to allocate space for a local variable, you need to subtract from the address stored in RSP. That's pretty confusing, and my notebook got filled up with lots of drawings of stacks with arrows pointing to them. 
 
-I think [this](http://www.cs.princeton.edu/courses/archive/spr11/cos217/lectures/15AssemblyFunctions.pdf) is a pretty helpful guide on calling conventions, but it's kind of confusing because it's written for a 32 bit processor (so whenever they deal with 4 bits, I had to deal with 8, etc. Thanks Eric!), and all the drawings of the stack are upside down (I think).
+I think [this](http://www.cs.princeton.edu/courses/archive/spr11/cos217/lectures/15AssemblyFunctions.pdf) is a pretty helpful guide on the calling convention, but it's kind of confusing because it's written for a 32 bit processor, and my Mac uses a 64 bit processor (so whenever they deal with 4 bits, I had to deal with 8, etc. Thanks Eric!). Also, I think all the drawings of the stack are upside down.
 
 Here are some more cool things I learned about Assembly syntax:  
 
@@ -162,7 +162,7 @@ Here are some more cool things I learned about Assembly syntax:
 
 * ```push``` and ```pop``` are cool because they automatically update the stack pointer as necessary. 
 * Whenever a function is called, an instruction pointer (a return address -- the address of the next instruction to be executed after the function returns -- stored in register RIP) is also pushed on to the stack. 
-* The ```ret``` keyword automatically pops this from the stack, so the program can continue running.
+* The ```ret``` keyword automatically pops this from the stack, so the program can continue running where it left off.
 * Whether register names start with 'R' or 'E' or something else has something to do with processor type and maintaining backwards compatibility...?
 
 -----
