@@ -23,7 +23,7 @@ After sorting that out, I took my server in the direction of an FTP server. Unli
 
 -----------
 
-Today, my goal was to be able to serve multiple connections from a single server -- threading. I spent some time playing with fork (by which one process can create multiple 'child' processes -- with a different memory space and process id (pid)) and exec (by which one process can begin running a different program). [This tutorial](http://www.yolinux.com/TUTORIALS/ForkExecProcesses.html) was helpful. Unlike forking, if a program spawns multiple threads, they will all share the same PID, a lot of data, and work concurrently (I still need to explore the order in which forked child programs run -- I think they run to completion, and only then does the parent process continue?).
+Today, my goal was to be able to serve multiple connections from a single server -- by using multiple threads. I spent some time playing with `fork` and `exec`. `fork`-ing enables one process to create multiple 'child' processes -- each with a different memory space and process id (PID). `exec` allows one process to begin running a different program. [This tutorial](http://www.yolinux.com/TUTORIALS/ForkExecProcesses.html) was helpful. Unlike forking, if a program spawns multiple threads, they will all share the same PID and a lot of data, and work concurrently with the parent program (I still need to explore the order in which forked child programs run -- I think they run to completion, and only then does the parent process continue?).
 
 I wrote a program that created 7 threads, and had them all 'working' on counting to 10. This resulted in:
 
@@ -84,12 +84,12 @@ Thread 1: 7
 Thread 3: 4
 ```
 
-As you can see, they're all working at the same time! Crazy.
+As you can see, they're all 'working' at the same time! Crazy.
 
 Thankfully, as far as my server is concerned, the progress made on any one connection shouldn't affect the progress made on any other. So I added a new thread to accept every new incoming connection. Now, my server can send/receive data with my client and telnet simultaneously. Cool.
 
 ----------
 
-Still haven't checked whether I have any memory leaks. I think I'm freeing all malloc'd memory, but the structs and functions involved in sockets are a bit wonky, so I'm not really sure.
+I still haven't checked whether I have any memory leaks. I think I'm freeing all malloc'd memory, but the structs and functions involved in sockets are a bit wonky, so I'm not really sure.
 
 Tomorrow I'm going to work on transmitting file data from server to client. I've been practicing a bit with dealing with files and a lot with working with strings, and this is going to be a bit tricky. 
