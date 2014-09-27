@@ -3,17 +3,17 @@
 
 -----
 
-I started off the day reading and taking notes on [Hardware for AVR-Assembler-Programming](http://www.avr-asm-tutorial.net/avr_en/beginner/), learning more about concepts like:  
+I started off the day reading and taking notes on [Hardware for AVR-Assembler-Programming](http://www.avr-asm-tutorial.net/avr_en/beginner/). "AVR" is a type of microcontroller (= mini computer) produced by [Atmel](http://www.atmel.com/products/microcontrollers/avr/), and it's also used to refer to the variety of Assembly language used to program AVR chips. Arduino Unos are based on the AVR ATmega328 chip. I learned more about concepts like:  
 
 |Thing|Explanation|  
 | ----- | :----- |  
-|Registers|8-bit blocks for storing data; directly accessible to the CPU|    
-|Ports|'gates' between the CPU and internal/external hardward and software; can hold up to 8 bits; each has a fixed address|  
+|Registers|blocks for storing data; directly accessible to the CPU; size varies from system to system|    
+|Ports|'gates' between the CPU and internal/external hardward and software; can hold up to 8 bits (on an AVR at least); each has a fixed address|  
 |MCUCR|MCU (a port) General Control Register -- controls the general properties of a chip|  
 |SRAM|Static RAM -- memory that is not directly accessible to the CPU -- so registers are usually used as intermediate storage if you want to access data here; can be accessed using fixed addresses or using pointers; this is where the Stack is!|  
 |Assembly syntax|Lots of manipulating/moving around/setting bits & bytes, but more ways to control program flow than I expected (using macros and subroutines, conditional jumps, and labels for sections of code), and some commands that might make accessing the stack correctly somewhat more straightforward (like pushing and popping of stack frame pointers)... and lots of other stuff! Each instruction is executed in 1 unit of the processor's clock cycle, which makes it ideal for the LED stuff I poked at later in the day|
 
-Then, I learned that this guide was written with Intel-style x86 assembly syntax ... and to play with the Arduino, I would need to use AT&T x86 syntax. They differ, for example, in how registers are named, and the ordering of command arguments, more on that [here](http://www.delorie.com/djgpp/doc/brennan/brennan_att_inline_djgpp.html). Both Intel and AT&T also differ from the syntax used in the [cool virtual processor](http://ivanzuzak.info/FRISCjs/webapp/) that I played with a bit, too. Who knew there were so many types of Assembly. Bummer.
+Then, I learned that this guide was written with Intel-style assembly syntax ... and to play with writing inline-assembly to run on an Arduino, I would need to use AT&T syntax. They differ, for example, in how registers are named, and the ordering of command arguments, more on that [here](http://www.delorie.com/djgpp/doc/brennan/brennan_att_inline_djgpp.html). Both Intel and AT&T also differ from the syntax used in the [cool virtual processor](http://ivanzuzak.info/FRISCjs/webapp/) that I played with a bit, too. Who knew there were so many types of Assembly. Bummer.
 
 --------------
 
